@@ -8,31 +8,39 @@
 {% endblock %}
 
 {% block content %}
-
-<nav class="navbar">
-  <div class="navbar-header">
-    <a href="{% url 'account:home' %}">ShareAndCare</a>
-  </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="{% url 'account:home' %}">ShareAndCare</a>
 </nav>
-
-<div class="sighup form">
+<div class="container">
   <form class="form" action="{% url 'account:signup' %}" method="POST">
     {% csrf_token %}
     <h1>Join ShareAndCare</h1>
-    <label>Username:</label>
-    {{ form.username }}
-    <label>Enter Email:</label>
-    {{ form.email }}
-    <label>First Name:</label>
-    {{ form.first_name }}
-    <label>Last Name:</label>
-    {{ form.last_name }}
-    <label>Enter password:</label>
-    {{ form.password1 }}
-    <label>Confirm Password:</label>
-    {{ form.password2 }}
+    <div class="form-group">
+      <label>Username:</label>
+      {{ form.username }}
+    </div>
+    <div class="form-group">
+      <label>Enter Email:</label>
+      {{ form.email }}
+    </div>
+    <div class="form-group">
+      <label>First Name:</label>
+      {{ form.first_name }}
+    </div>
+    <div class="form-group">
+      <label>Last Name:</label>
+      {{ form.last_name }}
+    </div>
+    <div class="form-group">
+      <label>Enter password:</label>
+      {{ form.password1 }}
+    </div>
+    <div class="form-group">
+      <label>Confirm Password:</label>
+      {{ form.password2 }}
+    </div>
     <br>
-    <button class="signup button">Sign Up</button>
+    <button class="btn btn-primary btn-block">Sign Up</button>
   </form>
   <div id="message">
     <h3>Password must contain the following:</h3>
@@ -41,5 +49,4 @@
     <p>Can't be totally <b>numeric</b></p>
   </div>
 </div>
-
 {% endblock %}
