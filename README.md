@@ -16,4 +16,8 @@ Fork this repo and clone it to your local machine. Then follow the below instruc
 
 2. Start the development server.
 
-    `$ python manage.py runserver`
+    `$ pipenv run server`
+
+## Run tests
+
+`$ pipenv run test`
