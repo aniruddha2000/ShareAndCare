@@ -1,0 +1,29 @@
+{% extends 'account/base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static '' %}">
+{% endblock %}
+
+{% block content %}
+<nav class="navbar">
+  <div class="navbar-header">
+    <a href="{% url 'account:home' %}">ShareAndCare</a>
+  </div>
+</nav>
+
+<div class="login form">
+  <form class="form" action="{% url 'account:login' %}" method="POST">
+    {% csrf_token %}
+    <h1>Sign in to ShareAndCare</h1>
+    <label>Usename:</label>
+    {{ form.username }}
+    <label>Password:</label>
+    {{ form.password }}
+    <br>
+    <button id="login-form-button">Login</button>
+  </form>
+</div>
+{% endblock %}

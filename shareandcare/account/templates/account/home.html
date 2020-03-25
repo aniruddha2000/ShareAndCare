@@ -1,4 +1,16 @@
 {% extends 'account/base.html' %}
 {% load static %}
 
-{% block title %}hello{% endblock %}
+{% block title %}ShareAndCare{% endblock %}
+
+{% block content %}
+<nav class="navbar">
+  <div class="navbar-header">
+    <a href="{% url 'account:home' %}">ShareAndCare</a>
+  </div>
+  <div class="navbar account button">
+    <a href="{% url 'account:login' %}">Login</a>
+    <a href="{% url 'account:signup' %}">Sign Up</a>
+  </div>
+</nav>
+{% endblock %}
