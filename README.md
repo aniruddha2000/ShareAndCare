@@ -10,11 +10,15 @@ Help to share the excess food among needy people
 
 Fork this repo and clone it to your local machine. Then follow the below instructu -
 
-1. Start the virtual environment.
+1. Create a new virtual environment and install the necessary packages -
+
+    `$ pipenv install`
+
+2. Start the virtual environment.
 
     `$ pipenv shell`
 
-2. Start the development server.
+3. Start the development server.
 
     `$ pipenv run server`
 
