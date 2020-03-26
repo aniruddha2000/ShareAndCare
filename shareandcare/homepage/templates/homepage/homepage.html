@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}ShareAndCare - Home{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'homepage:home' %}">ShareAndCare</a>
+    </div>
+    <span class="d-block d-lg-inline-block">
+      <div class="HeaderNavlink px-0 py-2 m-0">
+        <a class="text-bold text-white no-underline" href="{% url 'account:logout' %}">Logout</a>
+      </div>
+    </span>
+  </div>
+</nav>
+{% endblock %}
