@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'shareandcare.account',
+    'shareandcare.homepage',
 ]
 
 MIDDLEWARE = [

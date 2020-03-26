@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('shareandcare.account.urls', namespace='account')),
+    path('', include('shareandcare.homepage.urls', namespace='homepage')),
 ]
