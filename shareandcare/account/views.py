@@ -17,7 +17,7 @@ def login_view(request):
         login(request, user)
         if next:
             return redirect(next)
-        return redirect('account:home')
+        return redirect('homepage:home', request.user.username)
     return render(request, 'account/login.html', {'form': form})
 
 def signup_view(request):
@@ -38,3 +38,8 @@ def signup_view(request):
         'form': form,
     }
     return render(request, "account/signup.html", context)
+
+@login_required(login_url='account:login')
+def logout_view(request):
+    logout(request)
+    return redirect('account:login')
