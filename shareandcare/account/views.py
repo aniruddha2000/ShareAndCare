@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from shareandcare.account.forms import *
 
 
-def home_page_view(request):
+def home_view(request):
     return render(request, 'account/home.html')
 
 def login_view(request):
