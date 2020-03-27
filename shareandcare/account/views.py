@@ -17,7 +17,7 @@ def login_view(request):
         login(request, user)
         if next:
             return redirect(next)
-        return redirect('homepage:home', request.user.username)
+        return redirect('homepage:home', user.username)
     return render(request, 'account/login.html', {'form': form})
 
 def signup_view(request):

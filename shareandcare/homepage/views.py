@@ -6,4 +6,4 @@ from django.contrib.auth.models import User
 @login_required(login_url='account:login')
 def home_page_view(request, username):
     user = get_object_or_404(User, username=username)
-    return render(request, 'homepage/homepage.html', {'user': user})
+    return render(request, 'homepage/homepage.html', {'username': user})
