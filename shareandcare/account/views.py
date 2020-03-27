@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from shareandcare.account.forms import *
+from django.contrib.auth.models import User
+
 
 
 def home_view(request):
@@ -32,12 +34,19 @@ def signup_view(request):
         login(request, new_user)
         if next:
             return redirect(next)
-        return redirect('account:home')
+        return redirect('homepage:home', user.username)
 
     context = {
         'form': form,
     }
     return render(request, "account/signup.html", context)
+
+@login_required(login_url='account:login')
+def profile_view(request):
+    args = {
+        "user": request.user
+    }
+    return render(request, "account/profile.html", args)
 
 @login_required(login_url='account:login')
 def logout_view(request):
