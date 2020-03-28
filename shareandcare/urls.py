@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('shareandcare.account.urls', namespace='account')),
     path('home/', include('shareandcare.homepage.urls', namespace='homepage')),
+    path('', include('shareandcare.foodpost.urls', namespace='foodpost')),
 ]
