@@ -22,16 +22,16 @@
 </nav>
 <div class="container">
   <a href=""><button class="btn btn-primary my-2 my-sm-0">New Post</button></a>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="{% url 'homepage:home' username %}">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#posts">My Posts</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="{% url 'account:profile' %}">Profile</a>
+    </li>
+  </ul>
 </div>
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="{% url 'homepage:home' username %}">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#posts">My Posts</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="{% url 'account:profile' %}">Profile</a>
-  </li>
-</ul>
 {% endblock %}

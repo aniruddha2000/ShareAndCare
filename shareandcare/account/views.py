@@ -44,7 +44,7 @@ def signup_view(request):
 @login_required(login_url='account:login')
 def profile_view(request):
     args = {
-        "user": request.user
+        "username": request.user
     }
     return render(request, "account/profile.html", args)
 
