@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'shareandcare.account',
     'shareandcare.homepage',
+    'shareandcare.foodpost',
 ]
 
 MIDDLEWARE = [
