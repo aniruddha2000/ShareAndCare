@@ -12,25 +12,27 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="{% url 'homepage:home' username %}">ShareAndCare</a>
     </div>
-    <span class="d-block d-lg-inline-block">
-      <div class="HeaderNavlink px-0 py-2 m-0">
-        <a class="text-bold text-white no-underline" href="{% url 'account:logout' %}"><button
-            class="btn btn-outline-primary">Logout</button></a>
-      </div>
-    </span>
+  </div>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      More Menu
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="{% url 'account:profile' %}">Profile</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="{% url 'account:logout' %}">Logout</a>
+    </div>
   </div>
 </nav>
 <div class="container">
   <a href=""><button class="btn btn-primary my-2 my-sm-0">New Post</button></a>
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="{% url 'homepage:home' username %}">Home</a>
+      <a class="nav-link active" href="{% url 'homepage:home' username %}">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="{% url 'foodpost:mypost' %}">My Posts</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="{% url 'account:profile' %}">Profile</a>
+      <a class="nav-link" href="{% url 'foodpost:mypost' %}">My Posts</a>
     </li>
   </ul>
   <table class="table table-hover">
