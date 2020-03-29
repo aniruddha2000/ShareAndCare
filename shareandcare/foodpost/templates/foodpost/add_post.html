@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Your Posts{% endblock %}
+{% block title %}Add post{% endblock %}
 
 {% block css %}
 
@@ -24,30 +24,31 @@
   </div>
 </nav>
 <div class="container">
-  <a href="{% url 'foodpost:addpost' %}"><button class="btn btn-primary my-2 my-sm-0">New Post</button></a>
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" href="{% url 'homepage:home' username %}">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{% url 'foodpost:mypost' %}">My Posts</a>
-    </li>
-  </ul>
-  <table class="table table-hover">
-    <thead>
-      <th scope="col">Your posts</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          {% for post in my_posts %}
-          <ul>
-            <a class="btn btn-link" href="">{{ post.title }}</a>
-          </ul>
-          {% endfor %}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <form class="form" action="{% url 'foodpost:addpost' %}" method="POST">
+    {% csrf_token %}
+    <h1>Add new post</h1>
+    <div class="form-group">
+      <label>Title:</label>
+      {{ form.title }}
+    </div>
+    <div class="form-group">
+      <label>Description:</label>
+      {{ form.description }}
+    </div>
+    <div class="form-group">
+      <label>Country:</label>
+      {{ form.country }}
+    </div>
+    <div class="form-group">
+      <label>City:</label>
+      {{ form.city }}
+    </div>
+    <div class="form-group">
+      <label>Address:</label>
+      {{ form.address }}
+    </div>
+    <br>
+    <button type="button" class="btn btn-primary btn-lg btn-block">Create post</button>
+  </form>
 </div>
 {% endblock %}
