@@ -36,10 +36,10 @@ def signup_view(request):
             return redirect(next)
         return redirect('homepage:home', user.username)
 
-    context = {
+    args = {
         'form': form,
     }
-    return render(request, "account/signup.html", context)
+    return render(request, "account/signup.html", args)
 
 @login_required(login_url='account:login')
 def profile_view(request):
