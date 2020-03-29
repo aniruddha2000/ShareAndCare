@@ -33,5 +33,21 @@
       <a class="nav-link" data-toggle="tab" href="{% url 'account:profile' %}">Profile</a>
     </li>
   </ul>
+  <table class="table table-hover">
+    <thead>
+      <th scope="col">Your posts</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          {% for post in all_posts %}
+          <ul>
+            <a class="btn btn-link" href="">{{ post.title }}</a>
+          </ul>
+          {% endfor %}
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 {% endblock %}
