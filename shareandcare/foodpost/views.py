@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from . import models, forms
+from django.shortcuts import redirect, render
+
+from . import forms, models
 
 
 @login_required(login_url='account:login')
