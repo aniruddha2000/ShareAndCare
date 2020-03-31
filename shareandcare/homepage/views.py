@@ -13,3 +13,11 @@ def home_page_view(request, username):
         'all_posts': models.FoodPost.objects.exclude(user=request.user),
     }
     return render(request, 'homepage/homepage.html', args)
+
+@login_required(login_url='account:login')
+def home_page_post_view(request, post_id):
+    args = {
+        'username': request.user,
+        'post': models.FoodPost.objects.get(id=post_id),
+    }
+    return render(request, 'homepage/homepage_posts.html', args)
