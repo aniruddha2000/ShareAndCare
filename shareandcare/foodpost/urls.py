@@ -7,4 +7,5 @@ app_name = 'foodpost'
 urlpatterns = [
     path('my-posts', views.my_post_view, name='mypost'),
     path('add-posts', views.add_post_view, name='addpost'),
+    path('my-posts/<int:post_id>', views.my_post_detail_view, name='myPostDetail'),
 ]

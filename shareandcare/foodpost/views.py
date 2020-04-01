@@ -23,3 +23,11 @@ def add_post_view(request):
         'username': request.user
     }
     return render(request, 'foodpost/add_post.html', args)
+
+@login_required(login_url='account:login')
+def my_post_detail_view(request, post_id):
+    args = {
+        'username': request.user,
+        'post': models.FoodPost.objects.get(id=post_id),
+    }
+    return render(request, 'foodpost/my_posts_detail.html', args)
