@@ -25,9 +25,20 @@ def add_post_view(request):
     return render(request, 'foodpost/add_post.html', args)
 
 @login_required(login_url='account:login')
+def edit_post_view(request, post_id):
+    post = models.FoodPost.objects.get(id=post_id)
+    form = forms.EditFoodPostForm(request.POST or None, instance=post)
+    if form.is_valid():
+        form.save()
+        return redirect('foodpost:mypost')
+
+@login_required(login_url='account:login')
 def my_post_detail_view(request, post_id):
+    post = models.FoodPost.objects.get(id=post_id)
+    form = forms.EditFoodPostForm(request.POST or None, instance=post)
     args = {
+        'form': form,
         'username': request.user,
-        'post': models.FoodPost.objects.get(id=post_id),
+        'post': post,
     }
     return render(request, 'foodpost/my_posts_detail.html', args)
