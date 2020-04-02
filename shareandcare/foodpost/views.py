@@ -33,6 +33,12 @@ def edit_post_view(request, post_id):
         return redirect('foodpost:mypost')
 
 @login_required(login_url='account:login')
+def delete_post_view(request, post_id):
+    post = models.FoodPost.objects.get(id=post_id)
+    post.delete()
+    return redirect('foodpost:mypost')
+
+@login_required(login_url='account:login')
 def my_post_detail_view(request, post_id):
     post = models.FoodPost.objects.get(id=post_id)
     form = forms.EditFoodPostForm(request.POST or None, instance=post)
