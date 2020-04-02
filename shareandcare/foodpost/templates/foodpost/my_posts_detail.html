@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
+{% include 'foodpost/delete_confirm_modal.html' %}
+
+{% load staticfiles %}
+
 
 {% block title %}{{ post.title }}{% endblock %}
 
@@ -24,6 +28,9 @@
   </div>
 </nav>
 <div class="container">
+  <a href="{% url 'foodpost:deletePost' post.id %}" class="confirm-delete" data-toggle="modal"
+    data-target="#confirmDeleteModal" id="deleteButton{{post.id}}"><button
+      class="btn btn-primary my-2 my-sm-0">Delete Post</button></a>
   <form class="form" action="{% url 'foodpost:editPost' post.id %}" method="POST">
     {% csrf_token %}
     <div class="form-group">
@@ -50,4 +57,5 @@
     <button type="submit" class="btn btn-primary btn-lg btn-block">Edit post</button>
   </form>
 </div>
+<script src="{% static 'foodpost/js/confirm_delete.js' %}"></script>
 {% endblock %}
