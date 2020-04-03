@@ -1,14 +1,7 @@
 {% extends 'base.html' %}
 {% include 'foodpost/delete_confirm_modal.html' %}
 
-{% load staticfiles %}
-
-
-{% block title %}{{ post.title }}{% endblock %}
-
-{% block css %}
-
-{% endblock %}
+{% block title %}Edit Post{% endblock %}
 
 {% block content %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -57,5 +50,4 @@
     <button type="submit" class="btn btn-primary btn-lg btn-block">Edit post</button>
   </form>
 </div>
-<script src="{% static 'foodpost/js/confirm_delete.js' %}"></script>
 {% endblock %}
