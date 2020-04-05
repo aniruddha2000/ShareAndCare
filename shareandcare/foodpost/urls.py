@@ -3,7 +3,6 @@ from django.urls import path
 
 from . import views
 
-
 app_name = 'foodpost'
 urlpatterns = [
     path('my-posts', views.my_post_view, name='mypost'),
