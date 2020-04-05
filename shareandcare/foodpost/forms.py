@@ -1,4 +1,6 @@
 from django import forms
+from django_countries.fields import CountryField
+from django_countries.widgets import CountrySelectWidget
 
 from . import models
 
@@ -18,13 +20,13 @@ class FoodPostForm(forms.ModelForm):
             'style': 'border-radius: 4px;',
         }
     ), )
-    country = forms.CharField(label='', widget=forms.TextInput(
-        attrs={
-            'class': 'form-control',
-            'placeholder': 'country...',
-            'style': 'border-radius: 4px;',
-        }
-    ), )
+    country = CountryField().formfield(
+        widget=CountrySelectWidget(
+            attrs={
+                'class': 'form-control',
+            }
+        )
+    )
     city = forms.CharField(label='', widget=forms.TextInput(
         attrs={
             'class': 'form-control',
@@ -70,13 +72,13 @@ class EditFoodPostForm(forms.ModelForm):
             'style': 'border-radius: 4px;',
         }
     ), )
-    country = forms.CharField(label='', widget=forms.TextInput(
-        attrs={
-            'class': 'form-control',
-            'placeholder': 'country...',
-            'style': 'border-radius: 4px;',
-        }
-    ), )
+    country = CountryField().formfield(
+        widget=CountrySelectWidget(
+            attrs={
+                'class': 'form-control',
+            }
+        )
+    )
     city = forms.CharField(label='', widget=forms.TextInput(
         attrs={
             'class': 'form-control',
