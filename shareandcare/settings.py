@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'django_countries',
     'django_filters',
+    'phone_field',
 
     'shareandcare.account',
     'shareandcare.homepage',
