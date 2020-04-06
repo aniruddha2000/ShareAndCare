@@ -24,7 +24,9 @@
   <p>Username: {{ username }}</p>
   <p>First name: {{ user.first_name }}</p>
   <p>Last name: {{ user.last_name }}</p>
+  <p>Country: {{ user.userprofile.country.name }}</p>
   <p>Email: {{ user.email }}</p>
+  <p>Phone: {{ user.userprofile.phone }}</p>
   <a href=""><button class="btn btn-primary my-2 my-sm-0">Edit profile</button></a>
 </div>
 {% endblock %}
