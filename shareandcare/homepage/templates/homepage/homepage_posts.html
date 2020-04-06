@@ -21,6 +21,7 @@
 </nav>
 <div class="container">
   <h5>Title: {{ post.title }}</h5>
+  <h5>Posted by: {{ post.user.first_name }} {{ post.user.last_name }}</h5>
   <h5>Description: {{ post.description }}</h5>
   <h5>Date published: {{ post.publishing_date }}</h5>
   <h5>Country: {{ post.country }}</h5>
