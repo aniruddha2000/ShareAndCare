@@ -20,6 +20,10 @@
   </div>
 </nav>
 <div class="container">
+  <form method="GET">
+    {{ filter_posts.form.as_p }}
+    <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+  </form>
   <a href="{% url 'foodpost:addpost' %}"><button class="btn btn-primary my-2 my-sm-0">New Post</button></a>
   <ul class="nav nav-tabs">
     <li class="nav-item">
@@ -31,12 +35,12 @@
   </ul>
   <table class="table table-hover">
     <thead>
-      <th scope="col">Your posts</th>
+      <th scope="col">Posts</th>
     </thead>
     <tbody>
       <tr>
         <td>
-          {% for post in all_posts %}
+          {% for post in filter_posts.qs %}
           <ul>
             <a class="btn btn-link" href="{% url 'homepage:homePostView' post.id %}">{{ post.title }}</a>
           </ul>
