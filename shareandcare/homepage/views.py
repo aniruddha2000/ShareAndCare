@@ -4,13 +4,16 @@ from django.shortcuts import get_object_or_404, redirect, render
 
 from shareandcare.foodpost import models
 
+from .filters import PostFilter
+
 
 @login_required(login_url='account:login')
 def home_page_view(request, username):
     user = get_object_or_404(User, username=username)
+    all_posts = models.FoodPost.objects.exclude(user=request.user)
     args = {
         'username': user,
-        'all_posts': models.FoodPost.objects.exclude(user=request.user),
+        'filter_posts': PostFilter(request.GET, queryset=all_posts),
     }
     return render(request, 'homepage/homepage.html', args)
 
