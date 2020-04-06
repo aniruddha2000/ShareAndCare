@@ -12,6 +12,7 @@ django-countries = "==6.1.2"
 
 [packages]
 django = "==2.2"
+django-filter = "==2.2.0"
 
 [requires]
 python_version = "3.6"
