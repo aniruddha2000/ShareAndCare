@@ -1,13 +1,15 @@
 from django import forms
 from django.contrib.auth import authenticate, get_user_model
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+
+from .models import UserProfile
 
 User = get_user_model()
 
 class UserLoginForm(forms.Form):
     username = forms.CharField(label='', widget=forms.TextInput(
         attrs={
-            'class': 'login username',
+            'class': 'form-control',
             'placeholder': 'Enter username...',
             'style': 'border-radius: 4px;',
         }
@@ -15,7 +17,7 @@ class UserLoginForm(forms.Form):
 
     password = forms.CharField(label='', widget=forms.PasswordInput(
         attrs={
-            'class': 'login password',
+            'class': 'form-control',
             'placeholder': 'Enter password...',
             'style': 'border-radius: 4px;',
         }
@@ -42,42 +44,42 @@ class UserLoginForm(forms.Form):
 class UserRegisterForm(UserCreationForm):
     username = forms.CharField(label='', widget=forms.TextInput(
         attrs={
-            'class': 'signup username',
+            'class': 'form-control',
             'placeholder': 'Enter username...',
             'style': 'border-radius: 4px;',
         }
     ), )
     first_name = forms.CharField(label='', required=False, widget=forms.TextInput(
         attrs={
-            'class': 'signup firstname',
+            'class': 'form-control',
             'placeholder': 'Enter first name...',
             'style': 'border-radius: 4px;',
         }
     ), )
     last_name = forms.CharField(label='', required=False, widget=forms.TextInput(
         attrs={
-            'class': 'signup lastname',
+            'class': 'form-control',
             'placeholder': 'Enter last name...',
             'style': 'border-radius: 4px;',
         }
     ), )
     email = forms.EmailField(label='', widget=forms.TextInput(
         attrs={
-            'class': 'signup email',
+            'class': 'form-control',
             'placeholder': 'Enter email...',
             'style': 'border-radius: 4px;',
         }
     ),)
     password1 = forms.CharField(label='', widget=forms.PasswordInput(
         attrs={
-            'class': 'signup pass1',
+            'class': 'form-control',
             'placeholder': 'Enter password...',
             'style': 'border-radius: 4px;',
         }
     ), )
     password2 = forms.CharField(label='', widget=forms.PasswordInput(
         attrs={
-            'class': 'signup pass2',
+            'class': 'form-control',
             'placeholder': 'Confirm password...',
             'style': 'border-radius: 4px;',
         }
@@ -105,3 +107,44 @@ class UserRegisterForm(UserCreationForm):
         if password1 != password2:
             raise forms.ValidationError("Password must match")
         return super(UserRegisterForm, self).clean(*args, **kwargs)
+
+
+class EditProfileForm(UserChangeForm):
+    username = forms.CharField(label='', widget=forms.TextInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter username...',
+            'style': 'border-radius: 4px;',
+        }
+    ), )
+    first_name = forms.CharField(label='', required=False, widget=forms.TextInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter first name...',
+            'style': 'border-radius: 4px;',
+        }
+    ), )
+    last_name = forms.CharField(label='', required=False, widget=forms.TextInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter last name...',
+            'style': 'border-radius: 4px;',
+        }
+    ), )
+
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'first_name',
+            'last_name',
+        ]
+
+
+class EditUserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = [
+            'country',
+            'phone',
+        ]
