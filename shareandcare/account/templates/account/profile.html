@@ -20,13 +20,29 @@
   </div>
 </nav>
 <div class="container">
-  <h1>Profile:</h1>
-  <p>Username: {{ username }}</p>
-  <p>First name: {{ user.first_name }}</p>
-  <p>Last name: {{ user.last_name }}</p>
-  <p>Country: {{ user.userprofile.country.name }}</p>
-  <p>Email: {{ user.email }}</p>
-  <p>Phone: {{ user.userprofile.phone }}</p>
-  <a href=""><button class="btn btn-primary my-2 my-sm-0">Edit profile</button></a>
+  <form action="{% url 'account:edit_rofile' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label>Title:</label>
+      {{ user_form.username }}
+    </div>
+    <div class="form-group">
+      <label>Title:</label>
+      {{ user_form.first_name }}
+    </div>
+    <div class="form-group">
+      <label>Title:</label>
+      {{ user_form.last_name }}
+    </div>
+    <div class="form-group">
+      <label>Title:</label>
+      {{ user_profile_form.country }}
+    </div>
+    <div class="form-group">
+      <label>Title:</label>
+      {{ user_profile_form.phone }}
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Edit profile</button>
+  </form>
 </div>
 {% endblock %}
