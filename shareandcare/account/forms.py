@@ -1,8 +1,9 @@
 from django import forms
 from django.contrib.auth import authenticate, get_user_model
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm, PasswordChangeForm
 
 from .models import UserProfile
+
 
 User = get_user_model()
 
@@ -148,3 +149,44 @@ class EditUserProfileForm(forms.ModelForm):
             'country',
             'phone',
         ]
+
+
+class ChangePasswordForm(PasswordChangeForm):
+    old_password = forms.CharField(label='', widget=forms.PasswordInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter password...',
+            'style': 'border-radius: 4px;',
+        }
+    ), )
+    new_password1 = forms.CharField(label='', widget=forms.PasswordInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter password...',
+            'style': 'border-radius: 4px;',
+        }
+    ), )
+    new_password2 = forms.CharField(label='', widget=forms.PasswordInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter password...',
+            'style': 'border-radius: 4px;',
+        }
+    ), )
+
+    class Meta:
+        model = User
+        fields = [
+            'old_password',
+            'new_password1',
+            'new_password2',
+        ]
+
+    def clean(self, *args, **kwargs):
+        cleaned_data = super().clean()
+        old_password = cleaned_data.get('old_password')
+        new_password1 = cleaned_data.get('new_password1')
+        new_password2 = cleaned_data.get('new_password2')
+        if new_password1 != new_password2:
+            raise forms.ValidationError('Password not match')
+        return super(ChangePasswordForm, self).clean(*args, **kwargs)
