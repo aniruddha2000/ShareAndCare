@@ -64,6 +64,20 @@ def edit_profile_view(request):
         return redirect('account:profile')
 
 @login_required(login_url='account:login')
+def update_password_view(request):
+    form = ChangePasswordForm(data=request.POST or None, user=request.user)
+    if form.is_valid():
+        form.save()
+        update_session_auth_hash(request, form.user)
+        return redirect('account:profile')
+
+    args = {
+        'username': request.user,
+        'form': form,
+    }
+    return render(request, "account/update_password.html", args)
+
+@login_required(login_url='account:login')
 def logout_view(request):
     logout(request)
     return redirect('account:login')
