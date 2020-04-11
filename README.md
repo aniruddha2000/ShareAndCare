@@ -6,6 +6,8 @@ Help to share the excess food among needy people
 
 * python 3.6
 
+* pip 3
+
 ## Setup
 
 Fork this repo and clone it to your local machine. Then follow the below instructu -
@@ -25,3 +27,9 @@ Fork this repo and clone it to your local machine. Then follow the below instruc
 ## Run tests
 
 `$ pipenv run test`
+
+## Build docs
+
+First start the virtual environment and go inside the docs folder. And run the below command -
+
+`$ make html`
