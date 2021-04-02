@@ -1,13 +1,13 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
-from . import forms, models
-
+from shareandcare.foodpost import forms
+from shareandcare.foodpost import models
 
 @login_required(login_url='account:login')
 def my_post_view(request):
     args = {
-        'my_posts': models.FoodPost.objects.filter(user=request.user),
+        'my_posts': models.FoodPost.objects.filter(user=request.user.id),
         'username': request.user
     }
     return render(request, 'foodpost/my_posts.html', args)
