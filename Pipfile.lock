@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e48ba32cdb2789ace3f8c058df34108d1bad95a8cb31fa7b9d7e870244c492e2"
+            "sha256": "aa74b200f14b545342bb79d8194283203fd930ea0f2fa1916bffc9aa1cff54cc"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -32,6 +32,30 @@
             "index": "pypi",
             "version": "==3.1.7"
         },
+        "django-countries": {
+            "hashes": [
+                "sha256:058e3cd82705ebf8ef680fb623b1da2d47bc03b816a71589a8279d2e5a7a5389",
+                "sha256:94170e99465f7ea504da828c8e64f36d94440a86907fc8ecb56c5336aafae0cd"
+            ],
+            "index": "pypi",
+            "version": "==7.1"
+        },
+        "django-filter": {
+            "hashes": [
+                "sha256:84e9d5bb93f237e451db814ed422a3a625751cbc9968b484ecc74964a8696b06",
+                "sha256:e00d32cebdb3d54273c48f4f878f898dced8d5dfaad009438fe61ebdf535ace1"
+            ],
+            "index": "pypi",
+            "version": "==2.4.0"
+        },
+        "django-phone-field": {
+            "hashes": [
+                "sha256:beb6e909dd174ab8860f4fc9daaf6465d05e1974eea5b00ab6abd64f30248b50",
+                "sha256:eac0ad7043c103e78dcfe2b215e105cfa042fcaa5471c9072bf0bcb124a457b9"
+            ],
+            "index": "pypi",
+            "version": "==1.8.0"
+        },
         "pytz": {
             "hashes": [
                 "sha256:83a4a90894bf38e243cf052c8b58f381bfe9a7a483f6a9cab140bc7f702ac4da",
@@ -55,14 +79,6 @@
                 "sha256:a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02"
             ],
             "version": "==0.7.12"
-        },
-        "asgiref": {
-            "hashes": [
-                "sha256:5ee950735509d04eb673bd7f7120f8fa1c9e2df495394992c73234d526907e17",
-                "sha256:7162a3cb30ab0609f1a4c95938fd73e8604f63bdba516a7f7d64b83ff09478f0"
-            ],
-            "markers": "python_version >= '3.5'",
-            "version": "==3.3.1"
         },
         "attrs": {
             "hashes": [
@@ -94,38 +110,6 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
             "version": "==4.0.0"
-        },
-        "django": {
-            "hashes": [
-                "sha256:32ce792ee9b6a0cbbec340123e229ac9f765dff8c2a4ae9247a14b2ba3a365a7",
-                "sha256:baf099db36ad31f970775d0be5587cc58a6256a6771a44eb795b554d45f211b8"
-            ],
-            "index": "pypi",
-            "version": "==3.1.7"
-        },
-        "django-countries": {
-            "hashes": [
-                "sha256:2e852c9693818d64d28758a720a0cb8277673ac495af8b855c4dc64940703bd2",
-                "sha256:e2ae9b76f9a0b5f3f365b5b81fe4972df0a5878c930139586f43f7d6d50a9594"
-            ],
-            "index": "pypi",
-            "version": "==6.1.2"
-        },
-        "django-filter": {
-            "hashes": [
-                "sha256:558c727bce3ffa89c4a7a0b13bc8976745d63e5fd576b3a9a851650ef11c401b",
-                "sha256:c3deb57f0dd7ff94d7dce52a047516822013e2b441bed472b722a317658cfd14"
-            ],
-            "index": "pypi",
-            "version": "==2.2.0"
-        },
-        "django-phone-field": {
-            "hashes": [
-                "sha256:beb6e909dd174ab8860f4fc9daaf6465d05e1974eea5b00ab6abd64f30248b50",
-                "sha256:eac0ad7043c103e78dcfe2b215e105cfa042fcaa5471c9072bf0bcb124a457b9"
-            ],
-            "index": "pypi",
-            "version": "==1.8.0"
         },
         "docutils": {
             "hashes": [
@@ -413,14 +397,6 @@
             ],
             "markers": "python_version >= '3.5'",
             "version": "==1.1.4"
-        },
-        "sqlparse": {
-            "hashes": [
-                "sha256:017cde379adbd6a1f15a61873f43e8274179378e95ef3fede90b5aa64d304ed0",
-                "sha256:0f91fd2e829c44362cbcfab3e9ae12e22badaa8a29ad5ff599f9ec109f0454e8"
-            ],
-            "markers": "python_version >= '3.5'",
-            "version": "==0.4.1"
         },
         "typing-extensions": {
             "hashes": [
