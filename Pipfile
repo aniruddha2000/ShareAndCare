@@ -14,7 +14,7 @@ django-phone-field = "==1.8.0"
 sphinx = "==3.0.0"
 
 [packages]
-django = "==2.2"
+django = "==3.1.7"
 
 [requires]
 python_version = "3.6"
