@@ -16,7 +16,14 @@ def my_post_view(request):
 def add_post_view(request):
     form = forms.FoodPostForm(request.POST or None)
     if form.is_valid():
-        form.save()
+        title = form.cleaned_data.get('title')
+        description = form.cleaned_data.get('description')
+        country = form.cleaned_data.get('country')
+        city = form.cleaned_data.get('city')
+        address = form.cleaned_data.get('address')
+        new_post = models.FoodPost(user=request.user, title=title, description=description, country=country, city=city, address=address)
+        new_post.save()
+        # form.save()
         return redirect('foodpost:mypost')
     args = {
         'form': form,
