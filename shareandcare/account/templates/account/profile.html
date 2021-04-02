@@ -20,8 +20,11 @@
   </div>
 </nav>
 <div class="container">
+  <br />
   <a href="{% url 'account:update_password' %}"><button type="button" class="btn btn-outline-primary">Change
       Password</button></a>
+      <br />
+      <br />
   <form action="{% url 'account:edit_profile' %}" method="POST">
     {% csrf_token %}
     <div class="form-group">
