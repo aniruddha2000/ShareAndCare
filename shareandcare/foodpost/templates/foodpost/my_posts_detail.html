@@ -20,6 +20,7 @@
     </div>
   </div>
 </nav>
+<br />
 <div class="container">
   <form action="{% url 'foodpost:deletePost' post.id %}" method="POST">
     {% csrf_token %}
@@ -27,6 +28,7 @@
       data-target="#confirmDeleteModal" id="deleteButton{{post.id}}"><button class="btn btn-primary my-2 my-sm-0">Delete
         Post</button></a>
   </form>
+  <br />
   <form class="form" action="{% url 'foodpost:editPost' post.id %}" method="POST">
     {% csrf_token %}
     <div class="form-group">
